@@ -12,7 +12,6 @@ class TreeNode:
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        
         return self.findMaxDepth(root, depth=0)
         
     def findMaxDepth(self, root, depth):
