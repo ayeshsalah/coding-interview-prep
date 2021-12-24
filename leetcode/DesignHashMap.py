@@ -1,5 +1,6 @@
 # Leetcode
 # 706. Design HashMap
+# This solution uses Linked List for chaining
 # Solution :  https://leetcode.com/problems/design-hashmap/discuss/795852/Python-solution-with-detailed-comments
 
 class MyHashMap:
@@ -16,7 +17,7 @@ class MyHashMap:
 
         index = self.get_index(key)
         # There are three(3) conditions to consider:
-        # 1. If there is no key, value pair existing in the index, then create a new node to the index in hash table. 
+        # 1. If there is no key, value pair existing in the index, then create a new node to the index in hash map. 
         if self.hash_map[index] == None:
             self.hash_map[index] = Node(key,value)
         # If the key present in the index, then 
@@ -45,7 +46,7 @@ class MyHashMap:
         if self.hash_map[index] is None:
             return -1
         else:
-            # current_node is the index of the hashtable
+            # current_node is the index of the hashmap
             current_node = self.hash_map[index]
             while current_node:
                 # There are 2 conditions:
@@ -73,12 +74,12 @@ class MyHashMap:
             self.hash_map[index] = current_node.next
         else:
             
-            # Update the curr_ node to next
+            # Update the current_node to next
             current_node = current_node.next
             
             while current_node:
                 
-                # 2. If the curr node has the same key, update the pointer of prev to current.next. 
+                # 2. If the current_node has the same key, update the pointer of prev to current.next. 
                 # Break the condition and come out of the loop or else it will run infinitely. 
                 if current_node.key == key:
                     prev_node.next = current_node.next
