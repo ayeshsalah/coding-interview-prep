@@ -7,6 +7,28 @@ class ListNode:
         self.val = val
         self.next = next
 
+######################################################################
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        result = temp_pointer = ListNode()
+        carry = 0
+        while l1 or l2 or carry:
+            v1 = 0 # store current value of l1
+            v2 = 0 # store current value of l2
+            if l1:
+                v1 = l1.val
+                l1 = l1.next # l1 points to next node
+            if l2:
+                v2 = l2.val
+                l2 = l2.next # l2 points to next node 
+            current_sum = v1+v2+carry 
+            val = current_sum % 10 # mod to get the value to be added to LL
+            carry = current_sum // 10 # floor divison to find the carry value 
+            temp_pointer.next = ListNode(val) # add sum value to LL
+            temp_pointer = temp_pointer.next # increment the current node in the LL
+        return result.next
+
+######################################################################
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 
