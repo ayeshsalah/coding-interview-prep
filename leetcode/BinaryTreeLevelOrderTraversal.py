@@ -12,20 +12,22 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        # level is a list of the nodes in the current level. 
-        # Keep appending a list of the values of these nodes to result 
-        # Update level with all the nodes in the next level (kids) until it reaches an empty level. 
-        level = [root]
+        # current is a list of the nodes in the current level. 
+        # for every node in current, if there is left or right, append it to next_level
+        # append val of nodes in current to result
+        # assign next_level to current 
+        if not root:
+            return []
+        current = [root]
         result = []
-        while root and level:
-            current = []
+        while current:
             next_level = []
-            for node in level:
-                current.append(node.val)
+            for node in current:
                 if node.left:
                     next_level.append(node.left)
                 if node.right:
                     next_level.append(node.right)
-            result.append(current)
-            level = next_level
+            result.append([item.val for item in current])
+            current = next_level
         return result
+                    
