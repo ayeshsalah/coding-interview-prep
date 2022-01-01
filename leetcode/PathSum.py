@@ -13,9 +13,12 @@ class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         return self.branchSums(root, targetSum)
         
-    def branchSums(self, root, target, total=0):
-        if root:
-            total+=root.val
-            if not (root.left or root.right) and target == total:
-                return True
-            return self.branchSums(root.left, target, total) or self.branchSums(root.right, target, total)
+    def branch_sum(self, root, target):
+        # subtract current root.val from target at every step i.e. new_target
+        # if root.val and target match at the leaf level then targetSum is found.
+        if not root:
+            return []
+        new_target = target-root.val
+        if not root.left and not root.right and root.val == target:
+            return True
+        return self.branch_sum(root.left, new_target) or self.branch_sum(root.right, new_target)    
