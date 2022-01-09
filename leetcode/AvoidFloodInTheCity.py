@@ -1,12 +1,9 @@
 #LeetCode 
 #1488. Avoid Flood in The City
 
-from typing import Collection, List
-
-
 class Solution:
     def avoidFlood(self, rains: List[int]) -> List[int]:
-        schedule_dict = Collection.defaultdict(list)
+        schedule_dict = collections.defaultdict(list)
         ret = [-1] * len(rains)
         to_empty = [] # index
         
