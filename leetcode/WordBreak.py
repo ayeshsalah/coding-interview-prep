@@ -1,7 +1,7 @@
 # Leetcode
 # 139. Word Break
 # https://www.youtube.com/watch?v=Sx9NNgInc3A
-# TODO add explaination comments 
+# TODO add explanation comments 
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
