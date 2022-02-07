@@ -18,33 +18,28 @@ class UnionFind:
     def union(self, vertex1, vertex2):
         v1 = self.find(vertex1)
         v2 = self.find(vertex2)
-        if v1 == v2:
-            return True
-        if self.rank[v1] > self.rank[v2]:
-            self.vertices[v2] = v1
-        elif self.rank[v2] > self.rank[v1]:
-            self.vertices[v1] = v2
-        else:
-            self.rank[v1] +=1
-            self.vertices[v2] = v1
+        if v1 != v2:
+            if self.rank[v1] > self.rank[v2]:
+                self.vertices[v2] = v1
+            elif self.rank[v2] > self.rank[v1]:
+                self.vertices[v1] = v2
+            else:
+                self.rank[v1] +=1
+                self.vertices[v2] = v1
 
-        self.groups -= 1
-        return False
+            self.groups -= 1
+
     
-
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        n=len(isConnected)
-
-        if n < 1 or len(isConnected[0]) != n:
+        if not isConnected or len(isConnected) == 0:
             return 0
-
+        
+        n=len(isConnected)
         disjoint_set = UnionFind(n)
         
         for r in range(n):
             for c in range(n):
                 if isConnected[r][c] == 1:
                     disjoint_set.union(r, c)
-                    
-        return disjoint_set.groups 
-        
+        return disjoint_set.groups
