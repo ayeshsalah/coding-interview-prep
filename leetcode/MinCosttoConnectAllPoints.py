@@ -37,7 +37,7 @@ class Solution:
             for j in range(i+1, size):
                 # print(points[i])
                 # print(points[j])
-                distance = self.find_manhattan_dsitance(points[i], points[j])
+                distance = self.find_manhattan_distance(points[i], points[j])
                 # print(distance)
                 # edges.append((distance, (tuple(points[i])), tuple(points[j])))
                 edges.append((distance, i, j))
@@ -60,5 +60,10 @@ class Solution:
                 disjoint_set.union(edge[1], edge[2])
         return result               
         
-    def find_manhattan_dsitance(self, x, y):
+    def find_manhattan_distance(self, x, y):
         return abs(x[0]-y[0]) + abs(x[1]-y[1])
+
+
+# The difference between the “Kruskal’s algorithm” and the “Prim’s algorithm”  
+# “Kruskal’s algorithm” expands the “minimum spanning tree” by adding edges. 
+# Whereas “Prim’s algorithm” expands the “minimum spanning tree” by adding vertices. 
