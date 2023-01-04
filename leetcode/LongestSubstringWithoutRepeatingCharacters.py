@@ -3,13 +3,16 @@
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        max_len_counter = 0
+        max_len = 0
         start_idx = 0
         substr = {}
-        for curr_idx, item in enumerate(s):
-            if item in substr.keys() and start_idx<=substr[item]: 
-                start_idx = substr[item] + 1
+        for index, letter in enumerate(s):
+            if letter in substr.keys() and start_idx<=substr[letter]:
+                # if letter in hashmap move the start index to the index after the duplicate element's index. 
+                start_idx = substr[letter]+1
             else:
-                max_len_counter = max(max_len_counter, curr_idx - start_idx+1) #find max length every iteration 
-            substr[item] = curr_idx         #add/update hashtable
-        return  max_len_counter
+                # if new letter is found, compare existing max length and current substring's len and store larger value.
+                max_len = max(max_len, index-start_idx+1) # +1 as index starts from 0 in python
+            substr[letter] = index # add letter to the hashmap
+        return max_len
+
