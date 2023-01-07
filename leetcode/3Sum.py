@@ -14,7 +14,7 @@ class Solution:
                 current_sum = sorted_nums[first]+sorted_nums[left]+sorted_nums[right]
                 # if current sum is the target sum, add a tuple of triplets to result set. 
                 if current_sum == target_sum:
-                    # add tuple of triplets 
+                    # add tuple of triplets as list is unhashable 
                     result.add((sorted_nums[first], sorted_nums[left], sorted_nums[right]))
                     left +=1
                     right -=1
