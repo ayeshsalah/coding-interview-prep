@@ -20,4 +20,4 @@ class Solution:
                 stack.append(int(num2/num1))
             else:
                 stack.append(int(item))
-        return stack[0]
+        return stack.pop()
