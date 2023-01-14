@@ -10,12 +10,12 @@ class Solution:
         right = len(nums)-1
         while left<right:
             mid = (left+right)//2
-            if nums[mid] >= nums[right]:
-                # we search the right sorted array
+            # if middle is greater than right, search right sorted array
+            if nums[mid] > nums[right]:
                 # minimize the array by making mid+1 the left
                 left = mid+1
-            elif nums[mid] <= nums[right]:
-                # we search the left sorted array
+            # if middle is less than right, search left sorted array 
+            elif nums[mid] < nums[right]:
                 # minimize the array by making mid the right
                 right = mid
         return nums[left]
