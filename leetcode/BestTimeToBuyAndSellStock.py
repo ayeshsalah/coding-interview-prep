@@ -11,7 +11,7 @@ class Solution:
             min_price= min(min_price, price) #find lowest price
         return max_profit
 
-#### Addtional Solution ####
+#### Additional Solution ####
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
