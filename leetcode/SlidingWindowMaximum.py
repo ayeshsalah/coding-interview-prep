@@ -1,5 +1,7 @@
 # Leetcode
-# 239. Sliding Window Maximum 
+# 239. Sliding Window Maximum
+# Refer: https://www.geeksforgeeks.org/deque-in-python/
+# https://leetcode.com/problems/sliding-window-maximum/solutions/871317/clear-thinking-process-with-picture-brute-force-to-mono-deque-python-java-javascript/
 
 
 class Solution:
