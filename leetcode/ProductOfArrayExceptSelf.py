@@ -22,3 +22,17 @@ class Solution:
         for i in range(length):
             result.append(left_prods[i] * right_prods[i])
         return result
+
+######################################################################
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        prefix = 1
+        postfix = 1
+        length = len(nums)
+        result = [1] * length
+        for i in range(length):
+            result[i] = prefix * result[i]
+            prefix = prefix * nums[i]
+            result[length-i-1] = postfix * result[length-i-1]
+            postfix = postfix * nums[length-i-1]
+        return result
