@@ -6,7 +6,7 @@ class Solution:
         target_sum = 0 
         sorted_nums = sorted(nums)
         result = set() # Set is used to ensure duplicate triplets are not added.
-        for i in range(len(sorted_nums)-1): # -1 as last element will be right pointer.
+        for i in range(len(sorted_nums)):
             first = i
             left = i+1
             right = len(sorted_nums)-1
