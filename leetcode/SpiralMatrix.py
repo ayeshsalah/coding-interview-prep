@@ -35,11 +35,11 @@ class Solution:
         # check for single square
         if left == right == top == bottom:
             spiral_order.append(matrix[top][left])
-        # check for vertical line
+        # check for horizontal line
         elif top == bottom:
             for i in range(left, right+1):
                 spiral_order.append(matrix[top][i])
-        # check for horizontal line
+        # check for vertical line
         elif left == right:
             for i in range(top, bottom+1):
                 spiral_order.append(matrix[i][left])
