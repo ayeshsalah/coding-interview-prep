@@ -9,7 +9,7 @@ class Solution:
         result = 0
          
         for i in nums:
-            # start of the seqeunce is detected by checking for a previous neighbour in the num_set
+            # start of the sequence is detected by checking for a previous neighbour in the num_set
             # if num is not the start of a sequence; 
             # run a while loop until the next neighbours are in the numset
             # store the max of the current result and length
