@@ -21,9 +21,11 @@ class Solution:
 
 
 ################################################
+# Recursive solution 
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
-        previous, current = None, head
-        while current:
-            current.next, previous, current =  previous, current, current.next
-        return previous
+    def reverseList(self, head: ListNode, previous=None) -> ListNode:
+        if not head:
+            return previous
+        current, head.next = head.next, previous
+        return self.reverseList(current, head)
+    
