@@ -17,7 +17,7 @@ class Solution:
         dummy = ListNode()
         dummy.next = head
         
-        current = nex = previous = dummy
+        current = previous = next_node = dummy
 
         # find the length of the linked list
         length = 0
@@ -28,13 +28,13 @@ class Solution:
         # while the length of remaining nodes is greater than the size of the group i.e. k
         while length>k:
             current = previous.next # current will have the 1st node of the group; previous has the last node of the previous group
-            nex = current.next # next will be the 2nd node of the group
+            # next will be the 2nd node of the group
             # reverse the nodes in the group, runs k-1 times
             for _ in range(k-1):
-                current.next = nex.next
-                nex.next = previous.next
-                previous.next = nex
-                nex = current.next
+                next_node = current.next
+                current.next = next_node.next
+                next_node.next = previous.next
+                previous.next = next_node
             previous = current # assign previous to the last node of the previous group
             length -= k # subtract size of the group
         return dummy.next
