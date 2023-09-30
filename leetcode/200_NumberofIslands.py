@@ -2,7 +2,6 @@
 # 200. Number of Islands
 # https://www.youtube.com/watch?v=pV2kpPD66nE
 
-#TODO Add explanation
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         if not grid:
@@ -30,8 +29,8 @@ class Solution:
             row, col = q.popleft()
             directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
             for dr, dc in directions:
-                r = row+dr
-                c = col+dc
-                if (r in range(rows)) and c in range(cols) and grid[r][c] == "1" and (r, c) not in visited:
-                    q.append((r, c))
-                    visited.add((r,c))
+                new_r = row+dr
+                new_c = col+dc
+                if (new_r in range(rows)) and new_c in range(cols) and grid[new_r][new_c] == "1" and (new_r, new_c) not in visited:
+                    q.append((new_r, new_c))
+                    visited.add((new_r, new_c))
