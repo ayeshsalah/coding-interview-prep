@@ -9,32 +9,34 @@ class Solution:
         # 5
         # [[0, 1], [0,2], [1,3], [1,4], [3,4]]
 
-        # create adjacency list of cources and pre requisites
+        # create adjacency list of courses and pre requisites
+        # add every course id to adjacency list 
         adj_list = {i:[] for i in range(numCourses)}
+        # populate pre-requisites for the given courses
         for course, pre_req in prerequisites:
             adj_list[course].append(pre_req)
-            
         # print(adj_list)
+        
         # run recursive dfs on all the node. Loop is needed incase of an unconnected graph. 
         for crs in range(numCourses):
             if not self.dfs(crs, adj_list, set()):
                 return False
         return True
         
-    def dfs(self, item, adj_list, visiting):
-        # check if the item is already visited, if yes return False
-        if item in visiting:
+    def dfs(self, course, adj_list, visited):
+        # check if the course is already visited, if yes return False. This os the check for cycle in the graph.
+        if course in visited:
             return False
         # if the value in adj list is empty then no further prerequisites, return True
-        if adj_list[item] == []:
+        if adj_list[course] == []:
             return True
-        visiting.add(item)
-        pre_reqs = adj_list[item]
+        visited.add(course)
+        pre_reqs = adj_list[course]
         for pr in pre_reqs:
-            if not self.dfs(pr, adj_list, visiting):
+            if not self.dfs(pr, adj_list, visited):
                 return False
-        # remove item from visiting after is done visiting. 
-        visiting.remove(item)
+        # remove course from visited after is done visited. 
+        visited.remove(course)
         # if no False was returned in the loop then all the pre requisites are met. We can change the value to empty list.
-        adj_list[item] = []
+        adj_list[course] = []
         return True
