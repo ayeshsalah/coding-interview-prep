@@ -43,7 +43,7 @@ class Solution:
         return slow
 
     def merge_list(self, left, right):
-        # problem #88
+        # problem #21
         head = dummy = ListNode()
         while left and right:
             if left.val < right.val:
