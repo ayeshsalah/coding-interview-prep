@@ -6,9 +6,12 @@ class Solution:
         # Kadane's Algorithm
         # TC : O(N)
         # SC : O(1)
-        max_sum = -inf
+        max_sum = nums[0]
         current_sum = 0
-        for num in nums:
-            current_sum = max(num, current_sum + num)
+        for n in nums:
+            # if negative prefix is found, reset current sum to 0. 
+            if current_sum < 0:
+                current_sum = 0
+            current_sum += n
             max_sum = max(max_sum, current_sum)
         return max_sum
